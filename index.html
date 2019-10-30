@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Comming soon</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/69ea4f7908.css" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="https://use.fontawesome.com/f803ba4ada.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="wrapper">
+      <header>
+        <img
+          src="./logo.png"
+          alt="Missile Ingeniator"
+          width="160"
+          height="80"
+        />
+      </header>
+
+      <main class="content">
+        <h1>COMING SOON!</h1>
+
+        <div class="countdown">
+          <div class="countdown__days">
+            <div class="number"></div>
+            <span class>Days</span>
+          </div>
+
+          <div class="countdown__hours">
+            <div class="number"></div>
+            <span class>Hours</span>
+          </div>
+
+          <div class="countdown__minutes">
+            <div class="number"></div>
+            <span class>Minutes</span>
+          </div>
+
+          <div class="countdown__seconds">
+            <div class="number"></div>
+            <span class>Seconds</span>
+          </div>
+        </div>
+
+        <p class="info">
+          Our website is under construction. We`ll be here soon<br />with our
+          new awesome site. Subscribe to be notified.
+        </p>
+
+        <form action="">
+          <input
+            id="form-email"
+            name="form-email"
+            type="email"
+            placeholder="Your email address"
+          />
+          <input type="submit" value="Notify me" />
+        </form>
+      </main>
+
+      <footer>
+        <ul class="footer__links">
+          <li>
+            <a href="#" class="insta">
+              <span class="fa fa-instagram"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="fb"><span class="fa fa-facebook"></span></a>
+          </li>
+          <li>
+            <a href="#" class="linkedin"
+              ><span class="fa fa-linkedin"></span
+            ></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <script>
+      function init() {
+        // Specify the deadline date
+        const deadlineDate = new Date("November 31, 2019 23:59:59").getTime();
+
+        // Cache all countdown boxes into consts
+        const countdownDays = document.querySelector(
+          ".countdown__days .number"
+        );
+        const countdownHours = document.querySelector(
+          ".countdown__hours .number"
+        );
+        const countdownMinutes = document.querySelector(
+          ".countdown__minutes .number"
+        );
+        const countdownSeconds = document.querySelector(
+          ".countdown__seconds .number"
+        );
+
+        // Update the count down every 1 second (1000 milliseconds)
+        setInterval(() => {
+          // Get current date and time
+          const currentDate = new Date().getTime();
+
+          // Calculate the distance between current date and time and the deadline date and time
+          const distance = deadlineDate - currentDate;
+
+          // Calculations the data for remaining days, hours, minutes and seconds
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Insert the result data into individual countdown boxes
+          countdownDays.innerHTML = days;
+          countdownHours.innerHTML = hours;
+          countdownMinutes.innerHTML = minutes;
+          countdownSeconds.innerHTML = seconds;
+        }, 1000);
+      }
+      init();
+    </script>
+  </body>
+</html>
